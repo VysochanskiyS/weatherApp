@@ -2,8 +2,8 @@ import { View, Text, StyleSheet, Image, ScrollView } from 'react-native';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getSelectedDaySelector } from '../../redux/selectors';
-import { IListweather } from '../../../types/weather';
-import { Colors, defaultUrl, formattedTime, screenWidth } from '../../utils';
+import {IBaseWeatherInfo, IListweather} from '../../../types/weather';
+import {Colors, defaultUrl, formattedTime, formatTime, screenWidth} from '../../utils';
 import { ProPlan } from '../ProPlan';
 import { fetchWeather5Days, fetchWeatherDay } from '../../redux/actions';
 
@@ -13,7 +13,7 @@ interface IProps {
 
 export const WeatherDay = ({ selectedDay }: IProps) => {
   const dispatch = useDispatch();
-  const { weatherDay } = useSelector(getSelectedDaySelector);
+  const { weatherDay, weatherList } = useSelector(getSelectedDaySelector);
 
   useEffect(() => {
     console.log('second rerender');
@@ -23,19 +23,18 @@ export const WeatherDay = ({ selectedDay }: IProps) => {
   useEffect(() => {
     console.log('first rerender');
     dispatch(fetchWeatherDay(selectedDay));
-  }, [dispatch, selectedDay]);
-  console.log('weatherDay', weatherDay);
-
+  }, [dispatch, selectedDay, weatherList]);
+  console.log('weatherDay log: ', weatherDay, weatherDay.length)
   return (
     <View style={styles.containerSelectedDate}>
-      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+       <ScrollView  horizontal  showsHorizontalScrollIndicator={false}>
         {weatherDay.length ? (
-          weatherDay.map((partOfDay: IListweather) => {
+          weatherDay.map((partOfDay: IBaseWeatherInfo) => {
             return (
-              <View style={styles.cardOfPartDay}>
+              <View style={styles.cardOfPartDay} key={partOfDay.dt}>
                 <View style={[styles.row, styles.titleBlock]}>
                   <Text style={styles.textTime}>
-                    {formattedTime(partOfDay.dt_txt)}
+                    {formatTime(partOfDay.dt)}
                   </Text>
                   <Text style={styles.weatherText}>
                     {partOfDay.weather[0].description}
@@ -43,12 +42,12 @@ export const WeatherDay = ({ selectedDay }: IProps) => {
                 </View>
                 <View style={styles.row}>
                   <Text>temp:</Text>
-                  <Text style={styles.textDesc}>{partOfDay.main.temp}°C</Text>
+                  <Text style={styles.textDesc}>{partOfDay.temp}°C</Text>
                 </View>
                 <View style={styles.row}>
                   <Text>feels like: </Text>
                   <Text style={styles.textDesc}>
-                    {partOfDay.main.feels_like}°C
+                    {partOfDay.feels_like}°C
                   </Text>
                 </View>
                 <View style={styles.row}>
