@@ -1,5 +1,5 @@
-import { View, Text, StyleSheet, Image, ScrollView } from 'react-native';
-import React, { useEffect } from 'react';
+import {View, Text, StyleSheet, Image, ScrollView, ScrollResponderEvent} from 'react-native';
+import React, {useEffect, useRef, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getSelectedDaySelector } from '../../redux/selectors';
 import {IBaseWeatherInfo, IListweather} from '../../../types/weather';
@@ -24,12 +24,26 @@ export const WeatherDay = ({ selectedDay }: IProps) => {
     console.log('first rerender');
     dispatch(fetchWeatherDay(selectedDay));
   }, [dispatch, selectedDay, weatherList]);
-  console.log('weatherDay log: ', weatherDay, weatherDay.length)
+
+  const scrollViewRef = useRef<ScrollView>(null);
+
+  useEffect(() => {
+    if (scrollViewRef.current) {
+      scrollViewRef.current.scrollTo({y: 0});
+    }
+  }, [weatherDay])
+
+
+
   return (
-    <View style={styles.containerSelectedDate}>
-       <ScrollView  horizontal  showsHorizontalScrollIndicator={false}>
+    <View  style={styles.containerSelectedDate}>
+       <ScrollView
+           ref={scrollViewRef}
+           horizontal
+           showsHorizontalScrollIndicator={false}
+       >
         {weatherDay.length ? (
-          weatherDay.map((partOfDay: IBaseWeatherInfo) => {
+            weatherDay.map((partOfDay: IBaseWeatherInfo) => {
             return (
               <View style={styles.cardOfPartDay} key={partOfDay.dt}>
                 <View style={[styles.row, styles.titleBlock]}>
@@ -68,6 +82,7 @@ export const WeatherDay = ({ selectedDay }: IProps) => {
     </View>
   );
 };
+
 
 const styles = StyleSheet.create({
   containerSelectedDate: {
