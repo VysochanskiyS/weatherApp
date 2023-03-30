@@ -43,8 +43,7 @@ export interface IWeatherDaySaga {
 }
 
 export enum WeatherState {
-  TAKE_BY_DAY = 'TAKE_WEATHER_BY_DAY',
-  TAKE_5_Days = 'TAKE_WEAHER_5_Days',
-  SET_BY_DAY = 'SET_WEATHER_BY_DAY',
-  SET_5_Days = 'SET_WEATHER_5_DAYS',
+  SET_WEATHER_BY_SELECTED_DAY = 'SET_WEATHER_BY_SELECTED_DAY',
+  FETCH_WEATHER_5_DAYS = 'FETCH_WEATHER_5_DAYS',
+  SET_5_DAYS = 'SET_5_DAYS',
 }

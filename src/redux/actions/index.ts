@@ -1,1 +1,1 @@
-export { fetchWeather, fetchWeatherByDay } from './fetchWeatherAction';
+export { fetchWeatherDay, fetchWeather5Days } from './fetchWeatherAction';

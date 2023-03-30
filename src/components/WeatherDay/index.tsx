@@ -1,45 +1,110 @@
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image, ScrollView } from 'react-native';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getSelectedDaySelector } from '../../redux/selectors';
-import { fetchWeatherByDay } from '../../redux/actions';
-
-let defaultUrl = 'https://openweathermap.org/img/wn/';
+import { IListweather } from '../../../types/weather';
+import { Colors, defaultUrl, formattedTime, screenWidth } from '../../utils';
+import { ProPlan } from '../ProPlan';
+import { fetchWeather5Days, fetchWeatherDay } from '../../redux/actions';
 
 interface IProps {
   selectedDay: string;
 }
+
 export const WeatherDay = ({ selectedDay }: IProps) => {
   const dispatch = useDispatch();
   const { weatherDay } = useSelector(getSelectedDaySelector);
 
   useEffect(() => {
-    dispatch(fetchWeatherByDay(selectedDay));
+    console.log('second rerender');
+    dispatch(fetchWeather5Days());
+  }, [dispatch]);
+
+  useEffect(() => {
+    console.log('first rerender');
+    dispatch(fetchWeatherDay(selectedDay));
   }, [dispatch, selectedDay]);
+  console.log('weatherDay', weatherDay);
 
   return (
     <View style={styles.containerSelectedDate}>
-      {Object.keys(weatherDay).length ? (
-        <>
-          <Text>{weatherDay.weather[0].description}</Text>
-          <Text>temperature: {weatherDay.main.temp}</Text>
-          <Text> feels: {weatherDay.main.feels_like}</Text>
-          <Image
-            style={styles.image}
-            source={{
-              uri: `${defaultUrl}${weatherDay.weather[0].icon}.png`,
-            }}
-          />
-        </>
-      ) : null}
+      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+        {weatherDay.length ? (
+          weatherDay.map((partOfDay: IListweather) => {
+            return (
+              <View style={styles.cardOfPartDay}>
+                <View style={[styles.row, styles.titleBlock]}>
+                  <Text style={styles.textTime}>
+                    {formattedTime(partOfDay.dt_txt)}
+                  </Text>
+                  <Text style={styles.weatherText}>
+                    {partOfDay.weather[0].description}
+                  </Text>
+                </View>
+                <View style={styles.row}>
+                  <Text>temp:</Text>
+                  <Text style={styles.textDesc}>{partOfDay.main.temp}°C</Text>
+                </View>
+                <View style={styles.row}>
+                  <Text>feels like: </Text>
+                  <Text style={styles.textDesc}>
+                    {partOfDay.main.feels_like}°C
+                  </Text>
+                </View>
+                <View style={styles.row}>
+                  <Image
+                    style={styles.image}
+                    source={{
+                      uri: `${defaultUrl}${partOfDay.weather[0].icon}.png`,
+                    }}
+                  />
+                </View>
+              </View>
+            );
+          })
+        ) : (
+          <ProPlan />
+        )}
+      </ScrollView>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   containerSelectedDate: {
-    backgroundColor: 'red',
     margin: 10,
+    height: 150,
+  },
+  cardOfPartDay: {
+    width: screenWidth / 2,
+    marginRight: 10,
+    backgroundColor: Colors.MEDIUM_GREY,
+    borderRadius: 10,
+    padding: 10,
   },
   image: { width: 50, height: 50 },
+  textDesc: { fontSize: 16, color: Colors.BLACK, lineHeight: 22 },
+  textTime: {
+    fontSize: 24,
+    color: Colors.DEEP_GREY,
+  },
+  titleText: { fontSize: 16 },
+  titleBlock: {
+    borderBottomColor: Colors.DEEP_GREY,
+    borderBottomWidth: 1,
+    paddingBottom: 2,
+    marginBottom: 4,
+  },
+  weatherText: {
+    fontSize: 13,
+    color: Colors.BLACK,
+    marginRight: 4,
+    fontFamily: 'Cochin',
+  },
+  row: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginTop: 1,
+  },
 });

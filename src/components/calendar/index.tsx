@@ -9,6 +9,7 @@ type IProps = {
 
 export const CustomCalendar = ({ selected, setSelected }: IProps) => {
   const handleSelectDay = (day: DateData) => {
+    console.log('data', day.dateString);
     setSelected(day.dateString);
   };
 

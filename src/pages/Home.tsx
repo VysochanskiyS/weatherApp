@@ -1,15 +1,17 @@
-import { View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import React, { useState } from 'react';
 import { CustomCalendar } from '../components/calendar';
 import { WeatherDay } from '../components/WeatherDay';
 import { SectionList } from '../components/sectionList';
+import { screenHeight } from '../utils';
 
 export const Home = () => {
-  const [selected, setSelected] = useState<string>('2023-01-01');
+  const [selected, setSelected] = useState<string>(
+    new Date().toISOString().split('T')[0],
+  );
 
-  console.log('selected', selected);
   return (
-    <View>
+    <View style={styles.container}>
       <CustomCalendar selected={selected} setSelected={setSelected} />
       <WeatherDay selectedDay={selected} />
       <SectionList />
@@ -17,10 +19,6 @@ export const Home = () => {
   );
 };
 
-// const styles = StyleSheet.create({
-//   scrollStyle: {
-//     padding: 20,
-//     backgroundColor: 'red',
-//     height: 100,
-//   },
-// });
+const styles = StyleSheet.create({
+  container: { height: screenHeight },
+});

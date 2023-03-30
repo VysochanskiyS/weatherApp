@@ -1,31 +1,43 @@
-import React, { useCallback, useRef, useMemo } from 'react';
-import { StyleSheet, View, Text, Button } from 'react-native';
+import React, { useCallback, useRef, useMemo, useState } from 'react';
+import { StyleSheet, View, Text, Button, TouchableOpacity } from 'react-native';
 import BottomSheet, { BottomSheetSectionList } from '@gorhom/bottom-sheet';
+import { daysOfWeek, screenHeight, screenWidth } from '../../utils';
+import { useSelector } from 'react-redux';
+import { getSelectedDaySelector } from '../../redux/selectors';
+import { IListweather } from '../../../types/weather';
 
 export const SectionList = () => {
-  // hooks
   const sheetRef = useRef<BottomSheet>(null);
+  const [priority, setPriority] = useState<any>();
 
   // variables
+  const { weatherList } = useSelector(getSelectedDaySelector);
+
   const sections = useMemo(
     () =>
-      Array(10)
-        .fill(0)
-        .map((_, index) => ({
-          title: `Section ${index}`,
-          data: Array(10)
-            .fill(0)
-            .map((_, index) => `Item ${index}`),
-        })),
-    [],
+      weatherList.map((partOfDay: IListweather, i, array) => ({
+        title:
+          array[i - 1]?.dt_txt.split(' ')[0] === partOfDay.dt_txt.split(' ')[0]
+            ? partOfDay.dt_txt.split(' ')[1]
+            : daysOfWeek[new Date(partOfDay.dt_txt).getDay()],
+        data: weatherList
+          .filter((item: IListweather) =>
+            item.dt_txt.includes(partOfDay.dt_txt),
+          )
+          .map((partDay: IListweather) => `temp: ${partDay.main.temp}`),
+      })),
+    [weatherList],
   );
   const snapPoints = useMemo(() => ['25%', '50%', '90%'], []);
 
   // callbacks
-  const handleSheetChange = useCallback(index => {
-    console.log('handleSheetChange', index);
-  }, []);
-  const handleSnapPress = useCallback(index => {
+  const handleSheetChange = useCallback(
+    (index: number) => {
+      setPriority(+snapPoints[index].split('%')[0]);
+    },
+    [snapPoints],
+  );
+  const handleSnapPress = useCallback((index: number) => {
     sheetRef.current?.snapToIndex(index);
   }, []);
   const handleClosePress = useCallback(() => {
@@ -44,22 +56,26 @@ export const SectionList = () => {
   const renderItem = useCallback(
     ({ item }) => (
       <View style={styles.itemContainer}>
-        <Text>{item}</Text>r
+        <Text>{item}</Text>
       </View>
     ),
     [],
   );
   return (
-    <View style={styles.container}>
-      <Button title="Snap To 90%" onPress={() => handleSnapPress(2)} />
-      <Button title="Snap To 50%" onPress={() => handleSnapPress(1)} />
-      <Button title="Snap To 25%" onPress={() => handleSnapPress(0)} />
-      <Button title="Close" onPress={() => handleClosePress()} />
+    <View
+      style={styles.container}
+      pointerEvents={priority > 50 ? 'auto' : 'auto'}>
+      <TouchableOpacity
+        style={styles.bottomButton}
+        onPress={() => handleSnapPress(2)}>
+        <Text>Open Section List</Text>
+      </TouchableOpacity>
       <BottomSheet
         ref={sheetRef}
         index={1}
         snapPoints={snapPoints}
-        onChange={handleSheetChange}>
+        onChange={handleSheetChange}
+        overDragResistanceFactor={2}>
         <BottomSheetSectionList
           sections={sections}
           keyExtractor={i => i}
@@ -67,6 +83,9 @@ export const SectionList = () => {
           renderItem={renderItem}
           contentContainerStyle={styles.contentContainer}
         />
+        <TouchableOpacity onPress={handleClosePress} style={styles.modalHeader}>
+          <Text style={styles.modalHeaderText}>close</Text>
+        </TouchableOpacity>
       </BottomSheet>
     </View>
   );
@@ -74,9 +93,10 @@ export const SectionList = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    paddingTop: 200,
-    backgroundColor: 'red',
+    position: 'absolute',
+    bottom: 60,
+    width: screenWidth,
+    height: screenHeight / 1.3,
   },
   contentContainer: {
     backgroundColor: 'white',
@@ -90,4 +110,10 @@ const styles = StyleSheet.create({
     margin: 6,
     backgroundColor: '#eee',
   },
+  bottomButton: {
+    position: 'absolute',
+    bottom: 0,
+  },
+  modalHeader: { position: 'absolute', right: 20, top: 5 },
+  modalHeaderText: { fontSize: 16, fontWeight: 'bold' },
 });

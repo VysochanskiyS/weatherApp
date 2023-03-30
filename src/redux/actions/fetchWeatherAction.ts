@@ -1,14 +1,13 @@
 import { WeatherState } from '../../../types/weather';
 
-export function fetchWeather() {
+export function fetchWeatherDay(selected: string) {
   return {
-    type: WeatherState.TAKE_5_Days,
-    payload: '',
+    type: WeatherState.SET_WEATHER_BY_SELECTED_DAY,
+    payload: selected,
   };
 }
-export function fetchWeatherByDay(day: string) {
+export function fetchWeather5Days() {
   return {
-    type: WeatherState.TAKE_BY_DAY,
-    payload: day,
+    type: WeatherState.FETCH_WEATHER_5_DAYS,
   };
 }

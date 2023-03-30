@@ -1,25 +1,33 @@
 import { IListweather, WeatherState } from '../../../types/weather';
 
 interface IState {
-  weatherList: WeatherState | [];
-  weatherDay: IListweather | {};
+  weatherList: IListweather[];
+  weatherDay: IListweather[];
 }
 // Initial State
 const initialState: IState = {
   weatherList: [],
-  weatherDay: {},
+  weatherDay: [],
 };
 // Redux: Counter Reducer
 const weatherReducer = (state = initialState, action: any) => {
   switch (action.type) {
-    case WeatherState.SET_5_Days: {
+    case WeatherState.SET_5_DAYS: {
       return {
         ...state,
-        weather: action.payload,
+        weatherList: action.payload,
       };
     }
-    case WeatherState.SET_BY_DAY: {
-      return { ...state, weatherDay: action.payload };
+    case WeatherState.SET_5_DAYS: {
+      return { ...state, weatherList: action.payload };
+    }
+    case WeatherState.SET_WEATHER_BY_SELECTED_DAY: {
+      return {
+        ...state,
+        weatherDay: state.weatherList.filter(day =>
+          day.dt_txt.includes(action.payload),
+        ),
+      };
     }
     default: {
       return state;
