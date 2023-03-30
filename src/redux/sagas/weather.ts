@@ -1,24 +1,23 @@
 // Imports: Dependencies
 import { takeLatest, put, call, takeEvery } from 'redux-saga/effects';
 import {
-    IBaseWeatherInfo, IHistoricalWeather, IHistoricalWeatherContent,
-    IWeatherData,
+    IBaseWeatherInfo, IHistoricalWeatherContent,
     IWeatherDaySaga,
     WeatherState,
 } from '../../../types/weather';
-import { getHistoricalWeatherByDay, getWeather} from '../../api/getWeather';
+import { getHistoricalWeatherByDay, get5DayWeatherForecast} from '../../api/get5DayWeatherForecast';
 import {hasDayPassed} from "../../utils";
 
 function* Weather5Days() {
   try {
-    const { data } = yield call(getWeather);
+    const { data } = yield call(get5DayWeatherForecast);
 
     yield put({
       type: WeatherState.SET_5_DAYS,
       payload: data.list,
     });
   } catch (error) {
-    console.log('[Fetch weather by 5 days error]', error);
+    console.error('[Fetch weather by 5 days error]', error);
   }
 }
 
@@ -43,11 +42,12 @@ function* weatherDay({payload: selectedDay}: IWeatherDaySaga) {
                 }
                 return obj
             })
-            console.log('weatherData: ', formattedWeatherData)
+
             yield put({
                 type: WeatherState.SET_HISTORICAL_WEATHER_BY_SELECTED_DAY,
                 payload: formattedWeatherData,
             });
+
         } else {
 
             yield put({
@@ -57,7 +57,7 @@ function* weatherDay({payload: selectedDay}: IWeatherDaySaga) {
         }
 
     } catch (error) {
-        console.log('[Fetch weather by day error]', error);
+        console.error('[Fetch weather by day error]', error);
     }
 }
 

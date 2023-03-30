@@ -22,7 +22,7 @@ const weatherReducer = (state: IState = initialState, action: IWeatherReducerAct
       const searchedDay = state.weatherList.filter(day =>
           day.dt_txt.includes(action.payload),
       );
-      console.log('searchedDay: ', searchedDay)
+      // format weatherList to weatherDay format
       const formattedDay: IBaseWeatherInfo[] = searchedDay
           .map((weatherTimeframe) => {
             return {
