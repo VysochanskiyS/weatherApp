@@ -1,8 +1,5 @@
-import {IBaseWeatherInfo, IListweather, WeatherState} from '../../../types/weather';
-import {IState, IWeatherReducerActions} from "./interfaces";
-
-
-
+import { IBaseWeatherInfo, WeatherState } from '../../../types';
+import { IState, IWeatherReducerActions } from './interfaces';
 
 // Initial State
 const initialState: IState = {
@@ -10,7 +7,10 @@ const initialState: IState = {
   weatherDay: [],
 };
 // Redux: Counter Reducer
-const weatherReducer = (state: IState = initialState, action: IWeatherReducerActions): IState => {
+const weatherReducer = (
+  state: IState = initialState,
+  action: IWeatherReducerActions,
+) => {
   switch (action.type) {
     case WeatherState.SET_5_DAYS: {
       return {
@@ -20,19 +20,20 @@ const weatherReducer = (state: IState = initialState, action: IWeatherReducerAct
     }
     case WeatherState.SET_WEATHER_BY_SELECTED_DAY: {
       const searchedDay = state.weatherList.filter(day =>
-          day.dt_txt.includes(action.payload),
+        day.dt_txt.includes(action.payload),
       );
       // format weatherList to weatherDay format
-      const formattedDay: IBaseWeatherInfo[] = searchedDay
-          .map((weatherTimeframe) => {
-            return {
-              weather: weatherTimeframe.weather,
-              temp: weatherTimeframe.main.temp,
-              feels_like: weatherTimeframe.main.feels_like,
-              dt: weatherTimeframe.dt,
-              wind: weatherTimeframe.wind,
-            }
-          })
+      const formattedDay: IBaseWeatherInfo[] = searchedDay.map(
+        weatherTimeframe => {
+          return {
+            weather: weatherTimeframe.weather,
+            temp: weatherTimeframe.main.temp,
+            feels_like: weatherTimeframe.main.feels_like,
+            dt: weatherTimeframe.dt,
+            wind: weatherTimeframe.wind,
+          };
+        },
+      );
       return {
         ...state,
         weatherDay: formattedDay,
@@ -41,7 +42,7 @@ const weatherReducer = (state: IState = initialState, action: IWeatherReducerAct
     case WeatherState.SET_HISTORICAL_WEATHER_BY_SELECTED_DAY: {
       return {
         ...state,
-        weatherDay: action.payload
+        weatherDay: action.payload,
       };
     }
     default: {

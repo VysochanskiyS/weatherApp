@@ -5,17 +5,18 @@
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
 
     /* Completeness */
-    "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
+    "skipLibCheck": true,                              /* Skip type checking all .d.ts files. */
+    "baseUrl":".",
+    "paths": {
+      "@assets": ["./src/assets"],
+      "@components": ["./src/components"],
+      "@navigation": ["./src/navigation"],
+      "@pages": ["./src/pages"],
+      "@utils": ["./src/utils"],
+      "@api": ["./src/api"],
+      "@hooks": ["./src/hooks"],
+      "@redux": ["./src/redux"],
+      "@types": ["./src/types"],
+  }
   },
-  "paths": {
-    "@assets": ["./src/assets"],
-    "@components": ["./src/components"],
-    "@navigation": ["./src/navigation"],
-    "@pages": ["./src/pages"],
-    "@utils": ["./src/utils"],
-    "@api": ["./src/api"],
-    "@hooks": ["./src/hooks"],
-    "@redux": ["./src/redux"],
-
-}
 }

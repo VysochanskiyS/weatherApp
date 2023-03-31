@@ -10,8 +10,13 @@ export const apiAxios = axios.create({
 });
 
 export const apiAxiosV3 = axios.create({
-    baseURL: 'https://api.openweathermap.org/data/3.0/onecall/',
-    headers: {
-        'content-type': 'application/json',
-    },
-})
+  baseURL: 'https://api.openweathermap.org/data/3.0/onecall/',
+  headers: {
+    'content-type': 'application/json',
+  },
+});
+
+export {
+  getHistoricalWeatherByDay,
+  get5DayWeatherForecast,
+} from './get5DayWeatherForecast';

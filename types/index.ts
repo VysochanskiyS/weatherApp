@@ -1,5 +1,3 @@
-
-
 export interface IWeatherData {
   message: string;
   cod: string;
@@ -13,40 +11,40 @@ export interface IBaseWeatherInfo {
   feels_like: number;
   temp: number;
   dt: number;
-  weather: IWeather[]
-  wind:{
+  weather: IWeather[];
+  wind: {
     speed: number;
     deg: number;
-  }
+  };
 }
-export interface IHistoricalWeatherContent    {
-  dt: number,
-  sunrise: number,
-  sunset: number,
-  temp: number,
-  feels_like: number,
-  pressure: number,
-  humidity: number,
-  dew_point: number,
-  clouds: number,
-  wind_speed: number,
-  wind_deg: number,
-  wind_gust: number,
+export interface IHistoricalWeatherContent {
+  dt: number;
+  sunrise: number;
+  sunset: number;
+  temp: number;
+  feels_like: number;
+  pressure: number;
+  humidity: number;
+  dew_point: number;
+  clouds: number;
+  wind_speed: number;
+  wind_deg: number;
+  wind_gust: number;
   weather: [
     {
-      id: number,
-      main: string,
-      description: string,
-      icon: string
-    }
-  ]
+      id: number;
+      main: string;
+      description: string;
+      icon: string;
+    },
+  ];
 }
 export interface IHistoricalWeather {
-  lat: number,
-  lon: number,
-  timezone: string,
-  timezone_offset: number,
-  data: IHistoricalWeatherContent[]
+  lat: number;
+  lon: number;
+  timezone: string;
+  timezone_offset: number;
+  data: IHistoricalWeatherContent[];
 }
 export interface IListweather {
   dt: number;
@@ -71,8 +69,8 @@ export interface IListweather {
     '1h': number;
   };
   snow?: {
-    [key: string]: number
-  }
+    [key: string]: number;
+  };
 }
 interface IWeather {
   id: number;

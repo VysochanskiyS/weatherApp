@@ -1,4 +1,4 @@
-import {IBaseWeatherInfo, IListweather, WeatherState} from "../../../types/weather";
+import {IBaseWeatherInfo, IListweather, WeatherState} from "../../../types";
 
 export interface IState {
     weatherList: IListweather[];

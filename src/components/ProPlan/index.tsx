@@ -6,7 +6,7 @@ export const ProPlan = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>
-        Buy History plan on OpenWeather API to show weather more than for 5 days
+        Buy History plan on OpenWeather API to show weather
       </Text>
     </View>
   );
