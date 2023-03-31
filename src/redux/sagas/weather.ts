@@ -1,12 +1,13 @@
 // Imports: Dependencies
 import { get5DayWeatherForecast, getHistoricalWeatherByDay } from '@api';
-import { hasDayPassed } from '@utils';
 import { takeLatest, put, call, takeEvery } from 'redux-saga/effects';
+import { hasDayPassed } from '@utils';
 import {
-  IHistoricalWeatherContent,
+  IBaseWeatherInfo,
+  IHistoricalWeatherData,
   IWeatherDaySaga,
   WeatherState,
-} from 'types';
+} from '@types';
 
 function* Weather5Days() {
   try {
@@ -26,23 +27,17 @@ function* weatherDay({ payload: selectedDay }: IWeatherDaySaga) {
     const providedDate = new Date(selectedDay);
     const isYesterday = hasDayPassed(providedDate);
     if (isYesterday) {
-      const weatherData: IHistoricalWeatherContent[] = yield call(() =>
+      const weatherData: IHistoricalWeatherData[] = yield call(() =>
         getHistoricalWeatherByDay(providedDate),
       );
       const formattedWeatherData: IBaseWeatherInfo[] = weatherData.map(
-        (weatherTimeframe: IHistoricalWeatherContent) => {
-          const { weather, temp, dt, feels_like } = weatherTimeframe;
+        weatherTimeframe => {
+          const { weather, temp, dt, feels_like, wind_speed, wind_deg } =
+            weatherTimeframe;
 
-          return {
-            weather,
-            wind: {
-              speed: weatherTimeframe.wind_speed,
-              deg: weatherTimeframe.wind_deg,
-            },
-            temp,
-            dt,
-            feels_like,
-          };
+          let wind = { speed: wind_speed, deg: wind_deg };
+
+          return { weather, wind, temp, dt, feels_like };
         },
       );
 

@@ -2,7 +2,7 @@ import {
   IHistoricalWeather,
   IHistoricalWeatherContent,
   IWeatherData,
-} from '../../types/index';
+} from '../types/index';
 import { API_KEY, API_KEY_V3 } from '@env';
 import { apiAxios, apiAxiosV3 } from '.';
 import { locationQuery } from '../utils/location';

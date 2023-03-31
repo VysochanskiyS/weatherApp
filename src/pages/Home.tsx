@@ -1,8 +1,9 @@
 import { StyleSheet, View } from 'react-native';
 import React, { useState } from 'react';
+import { screenHeight } from '@utils';
 import { CustomCalendar } from '../components/calendar';
 import { WeatherDay } from '../components/WeatherDay';
-import { screenHeight } from '../utils';
+import { SectionList } from '../components/sectionList';
 
 export const Home = () => {
   const [selected, setSelected] = useState<string>(
@@ -13,7 +14,7 @@ export const Home = () => {
     <View style={styles.container}>
       <CustomCalendar selected={selected} setSelected={setSelected} />
       <WeatherDay selectedDay={selected} />
-      {/*<SectionList />*/}
+      <SectionList />
     </View>
   );
 };

@@ -1,4 +1,4 @@
-import { IBaseWeatherInfo, WeatherState } from '../../../types';
+import { IBaseWeatherInfo, WeatherState } from '../../types';
 import { IState, IWeatherReducerActions } from './interfaces';
 
 // Initial State

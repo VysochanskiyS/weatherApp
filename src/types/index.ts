@@ -17,7 +17,7 @@ export interface IBaseWeatherInfo {
     deg: number;
   };
 }
-export interface IHistoricalWeatherContent {
+export interface IHistoricalWeatherData {
   dt: number;
   sunrise: number;
   sunset: number;
@@ -44,7 +44,7 @@ export interface IHistoricalWeather {
   lon: number;
   timezone: string;
   timezone_offset: number;
-  data: IHistoricalWeatherContent[];
+  data: IHistoricalWeatherData[];
 }
 export interface IListweather {
   dt: number;

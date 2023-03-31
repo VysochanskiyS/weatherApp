@@ -1,4 +1,4 @@
-import { WeatherState } from '../../../types';
+import { WeatherState } from '../../types';
 
 export function fetchWeatherDay(selected: string) {
   return {

@@ -2,10 +2,10 @@ import { View, Text, StyleSheet, Image, ScrollView } from 'react-native';
 import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getSelectedDaySelector } from '../../redux/selectors';
-import { IBaseWeatherInfo } from '../../../types';
+import { IBaseWeatherInfo } from '../../types';
 import { Colors, defaultUrl, formatTime, screenWidth } from '../../utils';
 import { ProPlan } from '../ProPlan';
-import { fetchWeather5Days, fetchWeatherDay } from '../../redux/actions';
+import { fetchWeatherDay } from '../../redux/actions';
 
 interface IProps {
   selectedDay: string;
@@ -14,10 +14,6 @@ interface IProps {
 export const WeatherDay = ({ selectedDay }: IProps) => {
   const dispatch = useDispatch();
   const { weatherDay } = useSelector(getSelectedDaySelector);
-
-  // useEffect(() => {
-  //   dispatch(fetchWeather5Days());
-  // }, [dispatch]);
 
   useEffect(() => {
     dispatch(fetchWeatherDay(selectedDay));
