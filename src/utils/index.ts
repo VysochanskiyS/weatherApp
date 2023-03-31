@@ -1,4 +1,6 @@
+import { useCallback } from 'react';
 import { Dimensions } from 'react-native';
+import { IListweather } from '../../types/weather';
 
 export const formatToSec = (date: Date) => {
   return Math.floor(+new Date(date) / 1000);
@@ -43,3 +45,23 @@ export const daysOfWeek = [
   'Friday',
   'Saturday',
 ];
+
+export const hasNumberInString = (str: string) => {
+  return /\d/.test(str);
+};
+
+export const titleOfWeather = (
+  list: IListweather[],
+  weather3Hours: IListweather,
+  i: number,
+) => {
+  const weatherDate = new Date(weather3Hours.dt_txt).getDate();
+  const listDate = new Date(list[i - 1]?.dt_txt).getDate();
+
+  if (listDate === weatherDate) {
+    return weather3Hours.dt_txt.split(' ')[1];
+  }
+
+  const dayOfWeek = daysOfWeek[new Date(weather3Hours.dt_txt).getDay()];
+  return dayOfWeek;
+};

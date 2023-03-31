@@ -16,15 +16,12 @@ export const WeatherDay = ({ selectedDay }: IProps) => {
   const { weatherDay } = useSelector(getSelectedDaySelector);
 
   useEffect(() => {
-    console.log('second rerender');
     dispatch(fetchWeather5Days());
   }, [dispatch]);
 
   useEffect(() => {
-    console.log('first rerender');
     dispatch(fetchWeatherDay(selectedDay));
   }, [dispatch, selectedDay]);
-  console.log('weatherDay', weatherDay);
 
   return (
     <View style={styles.containerSelectedDate}>
@@ -32,7 +29,7 @@ export const WeatherDay = ({ selectedDay }: IProps) => {
         {weatherDay.length ? (
           weatherDay.map((partOfDay: IListweather) => {
             return (
-              <View style={styles.cardOfPartDay}>
+              <View key={partOfDay.dt_txt} style={styles.cardOfPartDay}>
                 <View style={[styles.row, styles.titleBlock]}>
                   <Text style={styles.textTime}>
                     {formattedTime(partOfDay.dt_txt)}

@@ -1,3 +1,4 @@
+import { Reducer } from 'redux';
 import { IListweather, WeatherState } from '../../../types/weather';
 
 interface IState {
@@ -10,7 +11,7 @@ const initialState: IState = {
   weatherDay: [],
 };
 // Redux: Counter Reducer
-const weatherReducer = (state = initialState, action: any) => {
+const weatherReducer: Reducer<IState> = (state = initialState, action: any) => {
   switch (action.type) {
     case WeatherState.SET_5_DAYS: {
       return {

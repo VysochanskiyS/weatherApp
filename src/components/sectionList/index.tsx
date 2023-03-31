@@ -1,60 +1,64 @@
-import React, { useCallback, useRef, useMemo, useState } from 'react';
-import { StyleSheet, View, Text, Button, TouchableOpacity } from 'react-native';
-import BottomSheet, { BottomSheetSectionList } from '@gorhom/bottom-sheet';
-import { daysOfWeek, screenHeight, screenWidth } from '../../utils';
+import React, { useCallback, useRef, useMemo } from 'react';
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import {
+  Colors,
+  hasNumberInString,
+  screenHeight,
+  screenWidth,
+  titleOfWeather,
+} from '../../utils';
 import { useSelector } from 'react-redux';
 import { getSelectedDaySelector } from '../../redux/selectors';
-import { IListweather } from '../../../types/weather';
+import { ISection } from '../../../types/bottomSheet.ts';
+import BottomSheet, { BottomSheetSectionList } from '@gorhom/bottom-sheet';
 
 export const SectionList = () => {
   const sheetRef = useRef<BottomSheet>(null);
-  const [priority, setPriority] = useState<any>();
 
   // variables
   const { weatherList } = useSelector(getSelectedDaySelector);
 
   const sections = useMemo(
     () =>
-      weatherList.map((partOfDay: IListweather, i, array) => ({
-        title:
-          array[i - 1]?.dt_txt.split(' ')[0] === partOfDay.dt_txt.split(' ')[0]
-            ? partOfDay.dt_txt.split(' ')[1]
-            : daysOfWeek[new Date(partOfDay.dt_txt).getDay()],
+      weatherList.map((partOfDay, i, array) => ({
+        title: titleOfWeather(array, partOfDay, i),
         data: weatherList
-          .filter((item: IListweather) =>
-            item.dt_txt.includes(partOfDay.dt_txt),
-          )
-          .map((partDay: IListweather) => `temp: ${partDay.main.temp}`),
+          .filter(item => item.dt_txt.includes(partOfDay.dt_txt))
+          .map(partDay => (
+            <View
+              style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+              <Text>`temp: ${partDay.main.temp}°C` </Text>
+              <Text>`time: {partDay.dt_txt.split(' ')[1]} </Text>
+            </View>
+          )),
       })),
     [weatherList],
   );
   const snapPoints = useMemo(() => ['25%', '50%', '90%'], []);
 
   // callbacks
-  const handleSheetChange = useCallback(
-    (index: number) => {
-      setPriority(+snapPoints[index].split('%')[0]);
-    },
-    [snapPoints],
-  );
   const handleSnapPress = useCallback((index: number) => {
     sheetRef.current?.snapToIndex(index);
   }, []);
+
   const handleClosePress = useCallback(() => {
     sheetRef.current?.close();
   }, []);
 
   // render
   const renderSectionHeader = useCallback(
-    ({ section }) => (
-      <View style={styles.sectionHeaderContainer}>
-        <Text>{section.title}</Text>
-      </View>
-    ),
+    ({ section }: { section: ISection }) => {
+      return !hasNumberInString(section.title) ? (
+        <View style={styles.sectionHeaderContainer}>
+          <Text style={styles.textHeader}>{section.title}</Text>
+        </View>
+      ) : null;
+    },
     [],
   );
+
   const renderItem = useCallback(
-    ({ item }) => (
+    ({ item }: { item: string }) => (
       <View style={styles.itemContainer}>
         <Text>{item}</Text>
       </View>
@@ -62,9 +66,7 @@ export const SectionList = () => {
     [],
   );
   return (
-    <View
-      style={styles.container}
-      pointerEvents={priority > 50 ? 'auto' : 'auto'}>
+    <>
       <TouchableOpacity
         style={styles.bottomButton}
         onPress={() => handleSnapPress(2)}>
@@ -74,7 +76,6 @@ export const SectionList = () => {
         ref={sheetRef}
         index={1}
         snapPoints={snapPoints}
-        onChange={handleSheetChange}
         overDragResistanceFactor={2}>
         <BottomSheetSectionList
           sections={sections}
@@ -87,22 +88,21 @@ export const SectionList = () => {
           <Text style={styles.modalHeaderText}>close</Text>
         </TouchableOpacity>
       </BottomSheet>
-    </View>
+    </>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    position: 'absolute',
-    bottom: 60,
     width: screenWidth,
-    height: screenHeight / 1.3,
+    height: screenHeight,
+    backgroundColor: 'red',
   },
   contentContainer: {
     backgroundColor: 'white',
   },
   sectionHeaderContainer: {
-    backgroundColor: 'white',
+    backgroundColor: Colors.DEEP_GREY,
     padding: 6,
   },
   itemContainer: {
@@ -111,8 +111,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#eee',
   },
   bottomButton: {
-    position: 'absolute',
-    bottom: 0,
+    width: screenWidth,
+    alignItems: 'center',
+  },
+  textHeader: {
+    color: Colors.WHITE,
+    fontSize: 16,
   },
   modalHeader: { position: 'absolute', right: 20, top: 5 },
   modalHeaderText: { fontSize: 16, fontWeight: 'bold' },
