@@ -1,7 +1,7 @@
-import { useCallback } from 'react';
 import { Dimensions } from 'react-native';
-import { IListweather } from '../../types/weather';
+import { IListweather } from '@types';
 
+export { splitDay, hasDayPassed } from './Date';
 export const formatToSec = (date: Date) => {
   return Math.floor(+new Date(date) / 1000);
 };
@@ -10,7 +10,13 @@ export const formatToSec = (date: Date) => {
 export const screenHeight = Dimensions.get('window').height;
 export const screenWidth = Dimensions.get('window').width;
 
-export const formattedTime = (date: string) => {
+export function formatTime(timestamp: number): string {
+  const date = new Date(timestamp * 1000);
+  const hours = date.getHours().toString().padStart(2, '0');
+  const minutes = date.getMinutes().toString().padStart(2, '0');
+  return `${hours}:${minutes}`;
+}
+export const formattedTime = (date: number | string) => {
   // Create a new Date object
   const newDate = new Date(date);
 

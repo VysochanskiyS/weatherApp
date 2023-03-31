@@ -1,8 +1,8 @@
-import { WeatherState } from '../../../types/weather';
+import { WeatherState } from '../../types';
 
 export function fetchWeatherDay(selected: string) {
   return {
-    type: WeatherState.SET_WEATHER_BY_SELECTED_DAY,
+    type: WeatherState.FETCH_WEATHER_BY_SELECTED_DAY,
     payload: selected,
   };
 }

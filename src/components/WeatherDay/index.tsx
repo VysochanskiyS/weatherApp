@@ -1,11 +1,12 @@
 import { View, Text, StyleSheet, Image, ScrollView } from 'react-native';
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getSelectedDaySelector } from '../../redux/selectors';
-import { IListweather } from '../../../types/weather';
-import { Colors, defaultUrl, formattedTime, screenWidth } from '../../utils';
+import { IBaseWeatherInfo } from '../../types';
+import { Colors, defaultUrl, formatTime, screenWidth } from '../../utils';
 import { ProPlan } from '../ProPlan';
-import { fetchWeather5Days, fetchWeatherDay } from '../../redux/actions';
+import { fetchWeatherDay } from '../../redux/actions';
+import { UiLoaderLabel } from '../loader';
 
 interface IProps {
   selectedDay: string;
@@ -13,56 +14,67 @@ interface IProps {
 
 export const WeatherDay = ({ selectedDay }: IProps) => {
   const dispatch = useDispatch();
-  const { weatherDay } = useSelector(getSelectedDaySelector);
-
-  useEffect(() => {
-    dispatch(fetchWeather5Days());
-  }, [dispatch]);
+  const { weatherDay, loading } = useSelector(getSelectedDaySelector);
 
   useEffect(() => {
     dispatch(fetchWeatherDay(selectedDay));
   }, [dispatch, selectedDay]);
 
+  const scrollViewRef = useRef<ScrollView>(null);
+
+  useEffect(() => {
+    if (scrollViewRef.current) {
+      scrollViewRef.current.scrollTo({ y: 0 });
+    }
+  }, [weatherDay]);
+
   return (
     <View style={styles.containerSelectedDate}>
-      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-        {weatherDay.length ? (
-          weatherDay.map((partOfDay: IListweather) => {
-            return (
-              <View key={partOfDay.dt_txt} style={styles.cardOfPartDay}>
-                <View style={[styles.row, styles.titleBlock]}>
-                  <Text style={styles.textTime}>
-                    {formattedTime(partOfDay.dt_txt)}
-                  </Text>
-                  <Text style={styles.weatherText}>
-                    {partOfDay.weather[0].description}
-                  </Text>
+      {!loading ? (
+        <ScrollView
+          ref={scrollViewRef}
+          horizontal
+          showsHorizontalScrollIndicator={false}>
+          {weatherDay.length ? (
+            weatherDay.map((partOfDay: IBaseWeatherInfo) => {
+              return (
+                <View style={styles.cardOfPartDay} key={partOfDay.dt}>
+                  <View style={[styles.row, styles.titleBlock]}>
+                    <Text style={styles.textTime}>
+                      {formatTime(partOfDay.dt)}
+                    </Text>
+                    <Text style={styles.weatherText}>
+                      {partOfDay.weather[0].description}
+                    </Text>
+                  </View>
+                  <View style={styles.row}>
+                    <Text>temp:</Text>
+                    <Text style={styles.textDesc}>{partOfDay.temp}°C</Text>
+                  </View>
+                  <View style={styles.row}>
+                    <Text>feels like: </Text>
+                    <Text style={styles.textDesc}>
+                      {partOfDay.feels_like}°C
+                    </Text>
+                  </View>
+                  <View style={styles.row}>
+                    <Image
+                      style={styles.image}
+                      source={{
+                        uri: `${defaultUrl}${partOfDay.weather[0].icon}.png`,
+                      }}
+                    />
+                  </View>
                 </View>
-                <View style={styles.row}>
-                  <Text>temp:</Text>
-                  <Text style={styles.textDesc}>{partOfDay.main.temp}°C</Text>
-                </View>
-                <View style={styles.row}>
-                  <Text>feels like: </Text>
-                  <Text style={styles.textDesc}>
-                    {partOfDay.main.feels_like}°C
-                  </Text>
-                </View>
-                <View style={styles.row}>
-                  <Image
-                    style={styles.image}
-                    source={{
-                      uri: `${defaultUrl}${partOfDay.weather[0].icon}.png`,
-                    }}
-                  />
-                </View>
-              </View>
-            );
-          })
-        ) : (
-          <ProPlan />
-        )}
-      </ScrollView>
+              );
+            })
+          ) : (
+            <ProPlan />
+          )}
+        </ScrollView>
+      ) : (
+        <UiLoaderLabel label={'Loading...'} withPreloader={loading} />
+      )}
     </View>
   );
 };

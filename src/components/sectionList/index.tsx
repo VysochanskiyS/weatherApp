@@ -1,34 +1,40 @@
-import React, { useCallback, useRef, useMemo } from 'react';
+import React, { useCallback, useRef, useMemo, useEffect } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
+import { getSelectedDaySelector } from '../../redux/selectors';
+import { ISection } from '../../types/bottomSheet.ts';
+import BottomSheet, { BottomSheetSectionList } from '@gorhom/bottom-sheet';
+import { fetchWeather5Days } from '../../redux/actions';
 import {
   Colors,
+  formattedTime,
   hasNumberInString,
   screenHeight,
   screenWidth,
   titleOfWeather,
-} from '../../utils';
-import { useSelector } from 'react-redux';
-import { getSelectedDaySelector } from '../../redux/selectors';
-import { ISection } from '../../../types/bottomSheet.ts';
-import BottomSheet, { BottomSheetSectionList } from '@gorhom/bottom-sheet';
+} from '@utils';
 
 export const SectionList = () => {
   const sheetRef = useRef<BottomSheet>(null);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchWeather5Days());
+  }, [dispatch]);
 
   // variables
   const { weatherList } = useSelector(getSelectedDaySelector);
 
   const sections = useMemo(
     () =>
-      weatherList.map((partOfDay, i, array) => ({
-        title: titleOfWeather(array, partOfDay, i),
+      weatherList.map((weatherOf3H, i, array) => ({
+        title: titleOfWeather(array, weatherOf3H, i),
         data: weatherList
-          .filter(item => item.dt_txt.includes(partOfDay.dt_txt))
+          .filter(({ dt_txt }) => dt_txt.includes(weatherOf3H.dt_txt))
           .map(partDay => (
-            <View
-              style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-              <Text>`temp: ${partDay.main.temp}°C` </Text>
-              <Text>`time: {partDay.dt_txt.split(' ')[1]} </Text>
+            <View style={styles.row}>
+              <Text>temp: {partDay.main.temp}°C </Text>
+              <Text>time: {formattedTime(partDay.dt_txt)} </Text>
             </View>
           )),
       })),
@@ -73,6 +79,7 @@ export const SectionList = () => {
         <Text>Open Section List</Text>
       </TouchableOpacity>
       <BottomSheet
+        containerStyle={styles.bottomSheetContainer}
         ref={sheetRef}
         index={1}
         snapPoints={snapPoints}
@@ -105,19 +112,32 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.DEEP_GREY,
     padding: 6,
   },
+  row: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: screenWidth - 40,
+  },
   itemContainer: {
     padding: 6,
     margin: 6,
     backgroundColor: '#eee',
   },
+  bottomSheetContainer: {
+    marginBottom: 125,
+  },
   bottomButton: {
     width: screenWidth,
     alignItems: 'center',
   },
+
   textHeader: {
     color: Colors.WHITE,
     fontSize: 16,
   },
-  modalHeader: { position: 'absolute', right: 20, top: 5 },
+  modalHeader: {
+    position: 'absolute',
+    right: 20,
+    top: 5,
+  },
   modalHeaderText: { fontSize: 16, fontWeight: 'bold' },
 });

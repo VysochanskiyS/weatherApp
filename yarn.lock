@@ -29,7 +29,7 @@
   resolved "https://registry.npmjs.org/@babel/compat-data/-/compat-data-7.21.0.tgz"
   integrity sha512-gMuZsmsgxk/ENC3O/fRw5QY8A9/uxQbbCEypnLIiYYc/qVJtEV7ouxC3EllIIwNzMqAQee5tanFabWsUOutS7g==
 
-"@babel/core@^7.0.0", "@babel/core@^7.0.0-0", "@babel/core@^7.1.0", "@babel/core@^7.12.0", "@babel/core@^7.12.3", "@babel/core@^7.12.9", "@babel/core@^7.13.0", "@babel/core@^7.13.16", "@babel/core@^7.14.0", "@babel/core@^7.4.0-0", "@babel/core@^7.7.5":
+"@babel/core@^7.0.0", "@babel/core@^7.0.0-0", "@babel/core@^7.1.0", "@babel/core@^7.12.0", "@babel/core@^7.12.3", "@babel/core@^7.12.9", "@babel/core@^7.13.0", "@babel/core@^7.13.16", "@babel/core@^7.14.0", "@babel/core@^7.20.0", "@babel/core@^7.4.0-0", "@babel/core@^7.7.5":
   version "7.21.3"
   resolved "https://registry.npmjs.org/@babel/core/-/core-7.21.3.tgz"
   integrity sha512-qIJONzoa/qiHghnm0l1n4i/6IIziDpzqc36FBs4pzMhDUraHqponwJLiAKm1hGLP3OSB/TVNz6rMwVGpwxxySw==
@@ -50,7 +50,7 @@
     json5 "^2.2.2"
     semver "^6.3.0"
 
-"@babel/generator@^7.14.0", "@babel/generator@^7.21.3":
+"@babel/generator@^7.14.0", "@babel/generator@^7.20.0", "@babel/generator@^7.21.3":
   version "7.21.3"
   resolved "https://registry.npmjs.org/@babel/generator/-/generator-7.21.3.tgz"
   integrity sha512-QS3iR1GYC/YGUnW7IdggFeN5c1poPUurnGttOV/bZgPGV+izC/D8HnD6DLwod0fsatNyVn1G3EVWMYIF0nHbeA==
@@ -273,7 +273,7 @@
     chalk "^2.0.0"
     js-tokens "^4.0.0"
 
-"@babel/parser@^7.1.0", "@babel/parser@^7.13.16", "@babel/parser@^7.14.0", "@babel/parser@^7.14.7", "@babel/parser@^7.20.7", "@babel/parser@^7.21.3", "@babel/parser@^7.7.0":
+"@babel/parser@^7.1.0", "@babel/parser@^7.13.16", "@babel/parser@^7.14.0", "@babel/parser@^7.14.7", "@babel/parser@^7.20.0", "@babel/parser@^7.20.7", "@babel/parser@^7.21.3", "@babel/parser@^7.7.0":
   version "7.21.3"
   resolved "https://registry.npmjs.org/@babel/parser/-/parser-7.21.3.tgz"
   integrity sha512-lobG0d7aOfQRXh8AyklEAgZGvA4FShxo6xQbUrrT/cNBPUdIDojlokwJsQyCC/eKia7ifqM0yP+2DRZ4WKw2RQ==
@@ -369,7 +369,7 @@
     "@babel/helper-plugin-utils" "^7.18.6"
     "@babel/plugin-syntax-nullish-coalescing-operator" "^7.8.3"
 
-"@babel/plugin-proposal-numeric-separator@^7.18.6":
+"@babel/plugin-proposal-numeric-separator@^7.0.0", "@babel/plugin-proposal-numeric-separator@^7.18.6":
   version "7.18.6"
   resolved "https://registry.npmjs.org/@babel/plugin-proposal-numeric-separator/-/plugin-proposal-numeric-separator-7.18.6.tgz"
   integrity sha512-ozlZFogPqoLm8WBr5Z8UckIoE4YQ5KESVcNudyXOR8uqIkliTEgJ3RoketfG6pmzLdeZF0H/wjE9/cCEitBl7Q==
@@ -480,7 +480,7 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.8.3"
 
-"@babel/plugin-syntax-flow@^7.0.0", "@babel/plugin-syntax-flow@^7.18.6", "@babel/plugin-syntax-flow@^7.2.0":
+"@babel/plugin-syntax-flow@^7.0.0", "@babel/plugin-syntax-flow@^7.12.1", "@babel/plugin-syntax-flow@^7.18.0", "@babel/plugin-syntax-flow@^7.18.6", "@babel/plugin-syntax-flow@^7.2.0":
   version "7.18.6"
   resolved "https://registry.npmjs.org/@babel/plugin-syntax-flow/-/plugin-syntax-flow-7.18.6.tgz"
   integrity sha512-LUbR+KNTBWCUAqRG9ex5Gnzu2IOkt8jRJbHHXFT9q+L9zm7M/QQbEqXyw1n1pohYvOyWC8CjeyjrSaIwiYjK7A==
@@ -1040,7 +1040,7 @@
     "@babel/parser" "^7.20.7"
     "@babel/types" "^7.20.7"
 
-"@babel/traverse@^7.1.0", "@babel/traverse@^7.14.0", "@babel/traverse@^7.20.5", "@babel/traverse@^7.20.7", "@babel/traverse@^7.21.0", "@babel/traverse@^7.21.2", "@babel/traverse@^7.21.3", "@babel/traverse@^7.7.0", "@babel/traverse@^7.7.4":
+"@babel/traverse@^7.1.0", "@babel/traverse@^7.14.0", "@babel/traverse@^7.20.0", "@babel/traverse@^7.20.5", "@babel/traverse@^7.20.7", "@babel/traverse@^7.21.0", "@babel/traverse@^7.21.2", "@babel/traverse@^7.21.3", "@babel/traverse@^7.7.0", "@babel/traverse@^7.7.4":
   version "7.21.3"
   resolved "https://registry.npmjs.org/@babel/traverse/-/traverse-7.21.3.tgz"
   integrity sha512-XLyopNeaTancVitYZe2MlUEvgKb6YVVPXzofHgqHijCImG33b/uTurMS488ht/Hbsb2XK3U2BnSTxKVNGV3nGQ==
@@ -1366,6 +1366,15 @@
     "@jridgewell/set-array" "^1.0.0"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
+"@jridgewell/gen-mapping@^0.3.0":
+  version "0.3.2"
+  resolved "https://registry.npmjs.org/@jridgewell/gen-mapping/-/gen-mapping-0.3.2.tgz"
+  integrity sha512-mh65xKQAzI6iBcFzwv28KVWSmCkdRBWoOh+bYQGW3+6OZvbbN3TqMGo5hqYxQniRcH9F2VZIoJCm4pa3BPDK/A==
+  dependencies:
+    "@jridgewell/set-array" "^1.0.1"
+    "@jridgewell/sourcemap-codec" "^1.4.10"
+    "@jridgewell/trace-mapping" "^0.3.9"
+
 "@jridgewell/gen-mapping@^0.3.2":
   version "0.3.2"
   resolved "https://registry.npmjs.org/@jridgewell/gen-mapping/-/gen-mapping-0.3.2.tgz"
@@ -1384,6 +1393,14 @@
   version "1.1.2"
   resolved "https://registry.npmjs.org/@jridgewell/set-array/-/set-array-1.1.2.tgz"
   integrity sha512-xnkseuNADM0gt2bs+BvhO0p78Mk762YnZdsuzFV018NoG1Sj1SCQvpSqa7XUaTam5vAGasABV9qXASMKnFMwMw==
+
+"@jridgewell/source-map@^0.3.2":
+  version "0.3.2"
+  resolved "https://registry.npmjs.org/@jridgewell/source-map/-/source-map-0.3.2.tgz"
+  integrity sha512-m7O9o2uR8k2ObDysZYzdfhb08VuEml5oWGiosa1VdaPZ/A6QyPkAJuwN0Q1lhULOf6B7MtQmHENS743hWtCrgw==
+  dependencies:
+    "@jridgewell/gen-mapping" "^0.3.0"
+    "@jridgewell/trace-mapping" "^0.3.9"
 
 "@jridgewell/sourcemap-codec@^1.4.10", "@jridgewell/sourcemap-codec@1.4.14":
   version "1.4.14"
@@ -2136,6 +2153,11 @@ acorn@^8.2.4:
   resolved "https://registry.npmjs.org/acorn/-/acorn-8.8.2.tgz"
   integrity sha512-xjIYgE8HBrkpd/sJqOGNspf8uHG+NOHGOw6a/Urj8taM2EXfdNAH2oFcPeIFfsv3+kz/mJrS5VuMqbNLjCa2vw==
 
+acorn@^8.5.0:
+  version "8.8.2"
+  resolved "https://registry.npmjs.org/acorn/-/acorn-8.8.2.tgz"
+  integrity sha512-xjIYgE8HBrkpd/sJqOGNspf8uHG+NOHGOw6a/Urj8taM2EXfdNAH2oFcPeIFfsv3+kz/mJrS5VuMqbNLjCa2vw==
+
 agent-base@6:
   version "6.0.2"
   resolved "https://registry.npmjs.org/agent-base/-/agent-base-6.0.2.tgz"
@@ -2206,14 +2228,7 @@ ansi-styles@^3.2.0, ansi-styles@^3.2.1:
   dependencies:
     color-convert "^1.9.0"
 
-ansi-styles@^4.0.0:
-  version "4.3.0"
-  resolved "https://registry.npmjs.org/ansi-styles/-/ansi-styles-4.3.0.tgz"
-  integrity sha512-zbB9rCJAT1rbjiVDb2hqKFHNYLxgtk8NURxZ3IZwD3F6NtxbXZQCnnSi1Lkx+IDohdPlFp222wVALIheZJQSEg==
-  dependencies:
-    color-convert "^2.0.1"
-
-ansi-styles@^4.1.0:
+ansi-styles@^4.0.0, ansi-styles@^4.1.0:
   version "4.3.0"
   resolved "https://registry.npmjs.org/ansi-styles/-/ansi-styles-4.3.0.tgz"
   integrity sha512-zbB9rCJAT1rbjiVDb2hqKFHNYLxgtk8NURxZ3IZwD3F6NtxbXZQCnnSi1Lkx+IDohdPlFp222wVALIheZJQSEg==
@@ -2465,6 +2480,13 @@ babel-plugin-syntax-trailing-function-commas@^7.0.0-beta.0:
   version "7.0.0-beta.0"
   resolved "https://registry.npmjs.org/babel-plugin-syntax-trailing-function-commas/-/babel-plugin-syntax-trailing-function-commas-7.0.0-beta.0.tgz"
   integrity sha512-Xj9XuRuz3nTSbaTXWv3itLOcxyF4oPD8douBBmj7U9BBC6nEBYfyOJYQMf/8PJAFotC62UY5dFfIGEPr7WswzQ==
+
+babel-plugin-transform-flow-enums@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.npmjs.org/babel-plugin-transform-flow-enums/-/babel-plugin-transform-flow-enums-0.0.2.tgz"
+  integrity sha512-g4aaCrDDOsWjbm0PUUeVnkcVd6AKJsVc/MbnPhEotEpkeJQP6b8nzewohQi7+QS8UyPehOhGWn0nOwjvWpmMvQ==
+  dependencies:
+    "@babel/plugin-syntax-flow" "^7.12.1"
 
 babel-preset-current-node-syntax@^1.0.0:
   version "1.0.1"
@@ -2788,6 +2810,15 @@ cliui@^6.0.0:
     strip-ansi "^6.0.0"
     wrap-ansi "^6.2.0"
 
+cliui@^8.0.1:
+  version "8.0.1"
+  resolved "https://registry.npmjs.org/cliui/-/cliui-8.0.1.tgz"
+  integrity sha512-BSeNnyus75C4//NQ9gQt1/csTXyo/8Sb+afLAkzAptFuMsod9HFokGNudZpi/oQV73hnVK+sR+5PVRMd+Dr7YQ==
+  dependencies:
+    string-width "^4.2.0"
+    strip-ansi "^6.0.1"
+    wrap-ansi "^7.0.0"
+
 clone-deep@^4.0.1:
   version "4.0.1"
   resolved "https://registry.npmjs.org/clone-deep/-/clone-deep-4.0.1.tgz"
@@ -2876,6 +2907,11 @@ command-exists@^1.2.8:
   version "1.2.9"
   resolved "https://registry.npmjs.org/command-exists/-/command-exists-1.2.9.tgz"
   integrity sha512-LTQ/SGc+s0Xc0Fu5WaKnR0YiygZkm9eKFvyS+fRsU7/ZWFF8ykFM6Pc9aCVf1+xasOOZpO3BAVgVrKvsqKHV7w==
+
+commander@^2.20.0:
+  version "2.20.3"
+  resolved "https://registry.npmjs.org/commander/-/commander-2.20.3.tgz"
+  integrity sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==
 
 commander@^9.4.0:
   version "9.5.0"
@@ -3895,7 +3931,7 @@ fs.realpath@^1.0.0:
   resolved "https://registry.npmjs.org/fs.realpath/-/fs.realpath-1.0.0.tgz"
   integrity sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw==
 
-fsevents@^2.1.2:
+fsevents@^2.1.2, fsevents@^2.3.2:
   version "2.3.2"
   resolved "https://registry.npmjs.org/fsevents/-/fsevents-2.3.2.tgz"
   integrity sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==
@@ -3930,7 +3966,7 @@ gensync@^1.0.0-beta.2:
   resolved "https://registry.npmjs.org/gensync/-/gensync-1.0.0-beta.2.tgz"
   integrity sha512-3hN7NaskYvMDLQY55gnW3NQ+mesEAepTqlg+VEbj7zzqEMBVNhzcGYYeqFo/TlYz6eQiFcp1HcsCZO+nGgS8zg==
 
-get-caller-file@^2.0.1:
+get-caller-file@^2.0.1, get-caller-file@^2.0.5:
   version "2.0.5"
   resolved "https://registry.npmjs.org/get-caller-file/-/get-caller-file-2.0.5.tgz"
   integrity sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg==
@@ -5528,10 +5564,25 @@ metro-babel-transformer@0.72.3:
     metro-source-map "0.72.3"
     nullthrows "^1.1.1"
 
+metro-babel-transformer@0.76.0:
+  version "0.76.0"
+  resolved "https://registry.npmjs.org/metro-babel-transformer/-/metro-babel-transformer-0.76.0.tgz"
+  integrity sha512-yBF8eJluya2iofhu8nZDXr9It/7bUcgXiKpFPrkiOWcMFY/jqzEbcavQ8uK3lFeXNRyvj0iaKaFs7Qo+2QJfow==
+  dependencies:
+    "@babel/core" "^7.20.0"
+    hermes-parser "0.8.0"
+    metro-source-map "0.76.0"
+    nullthrows "^1.1.1"
+
 metro-cache-key@0.72.3:
   version "0.72.3"
   resolved "https://registry.npmjs.org/metro-cache-key/-/metro-cache-key-0.72.3.tgz"
   integrity sha512-kQzmF5s3qMlzqkQcDwDxrOaVxJ2Bh6WRXWdzPnnhsq9LcD3B3cYqQbRBS+3tSuXmathb4gsOdhWslOuIsYS8Rg==
+
+metro-cache-key@0.76.0:
+  version "0.76.0"
+  resolved "https://registry.npmjs.org/metro-cache-key/-/metro-cache-key-0.76.0.tgz"
+  integrity sha512-Oyz+Yo/CG56kMXsDuioLf80MHwUqRzhOjaFsDvam3+gpc9rIGhnFL4ODhc6Qlum5auPRMT9XsksScErouft2tA==
 
 metro-cache@0.72.3:
   version "0.72.3"
@@ -5540,6 +5591,26 @@ metro-cache@0.72.3:
   dependencies:
     metro-core "0.72.3"
     rimraf "^2.5.4"
+
+metro-cache@0.76.0:
+  version "0.76.0"
+  resolved "https://registry.npmjs.org/metro-cache/-/metro-cache-0.76.0.tgz"
+  integrity sha512-J+OkOcIWrJisoXw6fXwWzeR1q4IuysMIKG8v/DWmKUOy8VI2c0gKXUW0mBfEWq6y3w0Czl94/xh1x7X0YLsTNg==
+  dependencies:
+    metro-core "0.76.0"
+    rimraf "^3.0.2"
+
+metro-config@^0.76.0, metro-config@0.76.0:
+  version "0.76.0"
+  resolved "https://registry.npmjs.org/metro-config/-/metro-config-0.76.0.tgz"
+  integrity sha512-5bfOtovHM7qjSobGBGRWXGh9+wMJlXHgot1LhjL3YTaNLUY42umbzdNC7dPcrGNLHH3MXTlG4cyNeCWZxtm6Hg==
+  dependencies:
+    cosmiconfig "^5.0.5"
+    jest-validate "^26.5.2"
+    metro "0.76.0"
+    metro-cache "0.76.0"
+    metro-core "0.76.0"
+    metro-runtime "0.76.0"
 
 metro-config@0.72.3:
   version "0.72.3"
@@ -5561,6 +5632,14 @@ metro-core@0.72.3:
     lodash.throttle "^4.1.1"
     metro-resolver "0.72.3"
 
+metro-core@0.76.0:
+  version "0.76.0"
+  resolved "https://registry.npmjs.org/metro-core/-/metro-core-0.76.0.tgz"
+  integrity sha512-LRNWBpvHWcMeK+LZ74VZRo6QfU8izh6BmmqeW57HnZec69JQ1uODV6e7gQig6PWH89aMzhq8QKQr0dPDUGDYIg==
+  dependencies:
+    lodash.throttle "^4.1.1"
+    metro-resolver "0.76.0"
+
 metro-file-map@0.72.3:
   version "0.72.3"
   resolved "https://registry.npmjs.org/metro-file-map/-/metro-file-map-0.72.3.tgz"
@@ -5581,10 +5660,36 @@ metro-file-map@0.72.3:
   optionalDependencies:
     fsevents "^2.1.2"
 
+metro-file-map@0.76.0:
+  version "0.76.0"
+  resolved "https://registry.npmjs.org/metro-file-map/-/metro-file-map-0.76.0.tgz"
+  integrity sha512-ifhMf75SlkSR8QcRBK1ecDwt9APZNEMWG7U8RIhtoDAtBYKuTbjjHNJiAwAU8UPE78m/Aryz6A+5cwpuAvSGrA==
+  dependencies:
+    abort-controller "^3.0.0"
+    anymatch "^3.0.3"
+    debug "^2.2.0"
+    fb-watchman "^2.0.0"
+    graceful-fs "^4.2.4"
+    invariant "^2.2.4"
+    jest-regex-util "^27.0.6"
+    jest-serializer "^27.0.6"
+    jest-util "^27.2.0"
+    jest-worker "^27.2.0"
+    micromatch "^4.0.4"
+    nullthrows "^1.1.1"
+    walker "^1.0.7"
+  optionalDependencies:
+    fsevents "^2.3.2"
+
 metro-hermes-compiler@0.72.3:
   version "0.72.3"
   resolved "https://registry.npmjs.org/metro-hermes-compiler/-/metro-hermes-compiler-0.72.3.tgz"
   integrity sha512-QWDQASMiXNW3j8uIQbzIzCdGYv5PpAX/ZiF4/lTWqKRWuhlkP4auhVY4eqdAKj5syPx45ggpjkVE0p8hAPDZYg==
+
+metro-hermes-compiler@0.76.0:
+  version "0.76.0"
+  resolved "https://registry.npmjs.org/metro-hermes-compiler/-/metro-hermes-compiler-0.76.0.tgz"
+  integrity sha512-ZW1jHtErMp327aPEkhHP69dLmtbzGj7ajsNFEwayoz/tZtyrTXT+f/8j6QVynIBMMpnAJkSIlinNo9fgIbE08w==
 
 metro-inspector-proxy@0.72.3:
   version "0.72.3"
@@ -5596,10 +5701,35 @@ metro-inspector-proxy@0.72.3:
     ws "^7.5.1"
     yargs "^15.3.1"
 
+metro-inspector-proxy@0.76.0:
+  version "0.76.0"
+  resolved "https://registry.npmjs.org/metro-inspector-proxy/-/metro-inspector-proxy-0.76.0.tgz"
+  integrity sha512-1RCMmXzcvDsFvJyfRqzUl2B3r0FTgxW37WlH2c2tMhqVtGxobDGHn5cFySeaCLvKSHps0NELeB+1SF7MB9scxA==
+  dependencies:
+    connect "^3.6.5"
+    debug "^2.2.0"
+    node-fetch "^2.2.0"
+    ws "^7.5.1"
+    yargs "^17.5.1"
+
+metro-minify-terser@0.76.0:
+  version "0.76.0"
+  resolved "https://registry.npmjs.org/metro-minify-terser/-/metro-minify-terser-0.76.0.tgz"
+  integrity sha512-dxaE/pvFDFEvXoNHuiXbA2Tw/jT1MD3B4a9AM+aYPWJBh3PdT9XM1HdzumyJldtZpCn5yka4maYSrtuebKgOyw==
+  dependencies:
+    terser "^5.15.0"
+
 metro-minify-uglify@0.72.3:
   version "0.72.3"
   resolved "https://registry.npmjs.org/metro-minify-uglify/-/metro-minify-uglify-0.72.3.tgz"
   integrity sha512-dPXqtMI8TQcj0g7ZrdhC8X3mx3m3rtjtMuHKGIiEXH9CMBvrET8IwrgujQw2rkPcXiSiX8vFDbGMIlfxefDsKA==
+  dependencies:
+    uglify-es "^3.1.9"
+
+metro-minify-uglify@0.76.0:
+  version "0.76.0"
+  resolved "https://registry.npmjs.org/metro-minify-uglify/-/metro-minify-uglify-0.76.0.tgz"
+  integrity sha512-Fuoxr5wLw/2/BUmhJqmIsfNZK+x8BK/DDXID5CZvHmZj5PdN4MN2WGWkM/F4EOw2t1YxbJ1hFSXM8skfSZ7jkw==
   dependencies:
     uglify-es "^3.1.9"
 
@@ -5648,6 +5778,51 @@ metro-react-native-babel-preset@0.72.3:
     "@babel/template" "^7.0.0"
     react-refresh "^0.4.0"
 
+metro-react-native-babel-preset@0.76.0:
+  version "0.76.0"
+  resolved "https://registry.npmjs.org/metro-react-native-babel-preset/-/metro-react-native-babel-preset-0.76.0.tgz"
+  integrity sha512-2sM6dy9uAbuQlg7l/VOdiudUUMFRkABJ1YLkZU6Fpqi/rJCXn4fbF0pO+TwCFbBYNIQBY50clv9RPvD2n64hXg==
+  dependencies:
+    "@babel/core" "^7.20.0"
+    "@babel/plugin-proposal-async-generator-functions" "^7.0.0"
+    "@babel/plugin-proposal-class-properties" "^7.0.0"
+    "@babel/plugin-proposal-export-default-from" "^7.0.0"
+    "@babel/plugin-proposal-nullish-coalescing-operator" "^7.0.0"
+    "@babel/plugin-proposal-numeric-separator" "^7.0.0"
+    "@babel/plugin-proposal-object-rest-spread" "^7.0.0"
+    "@babel/plugin-proposal-optional-catch-binding" "^7.0.0"
+    "@babel/plugin-proposal-optional-chaining" "^7.0.0"
+    "@babel/plugin-syntax-dynamic-import" "^7.0.0"
+    "@babel/plugin-syntax-export-default-from" "^7.0.0"
+    "@babel/plugin-syntax-flow" "^7.18.0"
+    "@babel/plugin-syntax-nullish-coalescing-operator" "^7.0.0"
+    "@babel/plugin-syntax-optional-chaining" "^7.0.0"
+    "@babel/plugin-transform-arrow-functions" "^7.0.0"
+    "@babel/plugin-transform-async-to-generator" "^7.0.0"
+    "@babel/plugin-transform-block-scoping" "^7.0.0"
+    "@babel/plugin-transform-classes" "^7.0.0"
+    "@babel/plugin-transform-computed-properties" "^7.0.0"
+    "@babel/plugin-transform-destructuring" "^7.0.0"
+    "@babel/plugin-transform-flow-strip-types" "^7.0.0"
+    "@babel/plugin-transform-function-name" "^7.0.0"
+    "@babel/plugin-transform-literals" "^7.0.0"
+    "@babel/plugin-transform-modules-commonjs" "^7.0.0"
+    "@babel/plugin-transform-named-capturing-groups-regex" "^7.0.0"
+    "@babel/plugin-transform-parameters" "^7.0.0"
+    "@babel/plugin-transform-react-display-name" "^7.0.0"
+    "@babel/plugin-transform-react-jsx" "^7.0.0"
+    "@babel/plugin-transform-react-jsx-self" "^7.0.0"
+    "@babel/plugin-transform-react-jsx-source" "^7.0.0"
+    "@babel/plugin-transform-runtime" "^7.0.0"
+    "@babel/plugin-transform-shorthand-properties" "^7.0.0"
+    "@babel/plugin-transform-spread" "^7.0.0"
+    "@babel/plugin-transform-sticky-regex" "^7.0.0"
+    "@babel/plugin-transform-typescript" "^7.5.0"
+    "@babel/plugin-transform-unicode-regex" "^7.0.0"
+    "@babel/template" "^7.0.0"
+    babel-plugin-transform-flow-enums "^0.0.2"
+    react-refresh "^0.4.0"
+
 metro-react-native-babel-transformer@0.72.3:
   version "0.72.3"
   resolved "https://registry.npmjs.org/metro-react-native-babel-transformer/-/metro-react-native-babel-transformer-0.72.3.tgz"
@@ -5668,10 +5843,23 @@ metro-resolver@0.72.3:
   dependencies:
     absolute-path "^0.0.0"
 
+metro-resolver@0.76.0:
+  version "0.76.0"
+  resolved "https://registry.npmjs.org/metro-resolver/-/metro-resolver-0.76.0.tgz"
+  integrity sha512-bU6HvKzPJOHGoe9na+tUa0g3pZqMUaSGE+noFx2qeSMtoIgOYkDzmuU9ZOAGcUOz0qJJtGs+QmgM+nBqfSS/pQ==
+
 metro-runtime@0.72.3:
   version "0.72.3"
   resolved "https://registry.npmjs.org/metro-runtime/-/metro-runtime-0.72.3.tgz"
   integrity sha512-3MhvDKfxMg2u7dmTdpFOfdR71NgNNo4tzAyJumDVQKwnHYHN44f2QFZQqpPBEmqhWlojNeOxsqFsjYgeyMx6VA==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    react-refresh "^0.4.0"
+
+metro-runtime@0.76.0:
+  version "0.76.0"
+  resolved "https://registry.npmjs.org/metro-runtime/-/metro-runtime-0.76.0.tgz"
+  integrity sha512-mEt1uWCYVwyvHYhCfsRXp7mqIBgOAYkocgousH5jwi07MwSAAvaDCvyRBUgtFohDQpL4j4N/QxNYExDDqUuuQw==
   dependencies:
     "@babel/runtime" "^7.0.0"
     react-refresh "^0.4.0"
@@ -5690,6 +5878,20 @@ metro-source-map@0.72.3:
     source-map "^0.5.6"
     vlq "^1.0.0"
 
+metro-source-map@0.76.0:
+  version "0.76.0"
+  resolved "https://registry.npmjs.org/metro-source-map/-/metro-source-map-0.76.0.tgz"
+  integrity sha512-tAXlHI6EOtRTkhXynZbe/as7pBDBxDaHftq/7pV3QCGyLeSaTNy6wzXI5ewr3kTuZxtBXktQH/Zl0rhKO8DGMA==
+  dependencies:
+    "@babel/traverse" "^7.20.0"
+    "@babel/types" "^7.20.0"
+    invariant "^2.2.4"
+    metro-symbolicate "0.76.0"
+    nullthrows "^1.1.1"
+    ob1 "0.76.0"
+    source-map "^0.5.6"
+    vlq "^1.0.0"
+
 metro-symbolicate@0.72.3:
   version "0.72.3"
   resolved "https://registry.npmjs.org/metro-symbolicate/-/metro-symbolicate-0.72.3.tgz"
@@ -5697,6 +5899,18 @@ metro-symbolicate@0.72.3:
   dependencies:
     invariant "^2.2.4"
     metro-source-map "0.72.3"
+    nullthrows "^1.1.1"
+    source-map "^0.5.6"
+    through2 "^2.0.1"
+    vlq "^1.0.0"
+
+metro-symbolicate@0.76.0:
+  version "0.76.0"
+  resolved "https://registry.npmjs.org/metro-symbolicate/-/metro-symbolicate-0.76.0.tgz"
+  integrity sha512-duq4RbeHDUzYQu4nzU2zWfBdG1YEXpaMqpLSvsXn5WJF3KK+v+BbtBvmo0zrEvzeA7kczNMxtZ97Yev9rqeYrw==
+  dependencies:
+    invariant "^2.2.4"
+    metro-source-map "0.76.0"
     nullthrows "^1.1.1"
     source-map "^0.5.6"
     through2 "^2.0.1"
@@ -5711,6 +5925,17 @@ metro-transform-plugins@0.72.3:
     "@babel/generator" "^7.14.0"
     "@babel/template" "^7.0.0"
     "@babel/traverse" "^7.14.0"
+    nullthrows "^1.1.1"
+
+metro-transform-plugins@0.76.0:
+  version "0.76.0"
+  resolved "https://registry.npmjs.org/metro-transform-plugins/-/metro-transform-plugins-0.76.0.tgz"
+  integrity sha512-Pl84l7LZAI+RXVP3+Hv+vLQwv4I3dHE91lM+Lw1EVFSep6jvraVVbER5+5/lnb5j1OTEW4EtHXmFus3nnTckeg==
+  dependencies:
+    "@babel/core" "^7.20.0"
+    "@babel/generator" "^7.20.0"
+    "@babel/template" "^7.0.0"
+    "@babel/traverse" "^7.20.0"
     nullthrows "^1.1.1"
 
 metro-transform-worker@0.72.3:
@@ -5730,6 +5955,25 @@ metro-transform-worker@0.72.3:
     metro-hermes-compiler "0.72.3"
     metro-source-map "0.72.3"
     metro-transform-plugins "0.72.3"
+    nullthrows "^1.1.1"
+
+metro-transform-worker@0.76.0:
+  version "0.76.0"
+  resolved "https://registry.npmjs.org/metro-transform-worker/-/metro-transform-worker-0.76.0.tgz"
+  integrity sha512-diV1gXL+/5R/LFPH3UwuU+dNlzT59c0qCHZm2iFqJYaVHuXUgAjyw48gVfOGDbytXLLcswQQD6C594Sc0QNnPA==
+  dependencies:
+    "@babel/core" "^7.20.0"
+    "@babel/generator" "^7.20.0"
+    "@babel/parser" "^7.20.0"
+    "@babel/types" "^7.20.0"
+    babel-preset-fbjs "^3.4.0"
+    metro "0.76.0"
+    metro-babel-transformer "0.76.0"
+    metro-cache "0.76.0"
+    metro-cache-key "0.76.0"
+    metro-hermes-compiler "0.76.0"
+    metro-source-map "0.76.0"
+    metro-transform-plugins "0.76.0"
     nullthrows "^1.1.1"
 
 metro@0.72.3:
@@ -5787,6 +6031,61 @@ metro@0.72.3:
     throat "^5.0.0"
     ws "^7.5.1"
     yargs "^15.3.1"
+
+metro@0.76.0:
+  version "0.76.0"
+  resolved "https://registry.npmjs.org/metro/-/metro-0.76.0.tgz"
+  integrity sha512-Pm9eMGyNQKnAaDOCmG+26YnodCh34gyl9ZD4UMKSBZA0ent2uUIZWGfZ5Bznljx1WH7JvPvn48VuZVJhctAhLQ==
+  dependencies:
+    "@babel/code-frame" "^7.0.0"
+    "@babel/core" "^7.20.0"
+    "@babel/generator" "^7.20.0"
+    "@babel/parser" "^7.20.0"
+    "@babel/template" "^7.0.0"
+    "@babel/traverse" "^7.20.0"
+    "@babel/types" "^7.20.0"
+    accepts "^1.3.7"
+    async "^3.2.2"
+    chalk "^4.0.0"
+    ci-info "^2.0.0"
+    connect "^3.6.5"
+    debug "^2.2.0"
+    denodeify "^1.2.1"
+    error-stack-parser "^2.0.6"
+    graceful-fs "^4.2.4"
+    hermes-parser "0.8.0"
+    image-size "^0.6.0"
+    invariant "^2.2.4"
+    jest-worker "^27.2.0"
+    lodash.throttle "^4.1.1"
+    metro-babel-transformer "0.76.0"
+    metro-cache "0.76.0"
+    metro-cache-key "0.76.0"
+    metro-config "0.76.0"
+    metro-core "0.76.0"
+    metro-file-map "0.76.0"
+    metro-hermes-compiler "0.76.0"
+    metro-inspector-proxy "0.76.0"
+    metro-minify-terser "0.76.0"
+    metro-minify-uglify "0.76.0"
+    metro-react-native-babel-preset "0.76.0"
+    metro-resolver "0.76.0"
+    metro-runtime "0.76.0"
+    metro-source-map "0.76.0"
+    metro-symbolicate "0.76.0"
+    metro-transform-plugins "0.76.0"
+    metro-transform-worker "0.76.0"
+    mime-types "^2.1.27"
+    node-fetch "^2.2.0"
+    nullthrows "^1.1.1"
+    rimraf "^3.0.2"
+    serialize-error "^2.1.0"
+    source-map "^0.5.6"
+    strip-ansi "^6.0.0"
+    temp "0.8.3"
+    throat "^5.0.0"
+    ws "^7.5.1"
+    yargs "^17.5.1"
 
 micromatch@^3.1.10:
   version "3.1.10"
@@ -6066,6 +6365,11 @@ ob1@0.72.3:
   version "0.72.3"
   resolved "https://registry.npmjs.org/ob1/-/ob1-0.72.3.tgz"
   integrity sha512-OnVto25Sj7Ghp0vVm2THsngdze3tVq0LOg9LUHsAVXMecpqOP0Y8zaATW8M9gEgs2lNEAcCqV0P/hlmOPhVRvg==
+
+ob1@0.76.0:
+  version "0.76.0"
+  resolved "https://registry.npmjs.org/ob1/-/ob1-0.76.0.tgz"
+  integrity sha512-ZLPDN2wCuFRAno0S2BSitMse+l0ipfjQQCDlYZMjZn9YnOGsRneifMlvN+3mWgTA8TOHsoAMYQdciBylgsfAmA==
 
 object-assign@^4.1.0, object-assign@^4.1.1:
   version "4.1.1"
@@ -6613,6 +6917,11 @@ react-native-gradle-plugin@^0.70.3:
   version "0.70.3"
   resolved "https://registry.npmjs.org/react-native-gradle-plugin/-/react-native-gradle-plugin-0.70.3.tgz"
   integrity sha512-oOanj84fJEXUg9FoEAQomA8ISG+DVIrTZ3qF7m69VQUJyOGYyDZmPqKcjvRku4KXlEH6hWO9i4ACLzNBh8gC0A==
+
+react-native-loading-spinner-overlay@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.npmjs.org/react-native-loading-spinner-overlay/-/react-native-loading-spinner-overlay-3.0.1.tgz"
+  integrity sha512-4GdR54HQnKg2HPSSisVizfTLuyhSh4splY9eb8mKiYF1Ihjn/5EmdNo5bN3S7uKPFRC3WLzIZIouX6G6fXfnjw==
 
 react-native-reanimated@^3.0.2, react-native-reanimated@>=2.2.0:
   version "3.0.2"
@@ -7307,7 +7616,7 @@ source-map-resolve@^0.5.0:
     source-map-url "^0.4.0"
     urix "^0.1.0"
 
-source-map-support@^0.5.16, source-map-support@^0.5.6:
+source-map-support@^0.5.16, source-map-support@^0.5.6, source-map-support@~0.5.20:
   version "0.5.21"
   resolved "https://registry.npmjs.org/source-map-support/-/source-map-support-0.5.21.tgz"
   integrity sha512-uBHU3L3czsIyYXKX88fdrGovxdSCoTGDRZ6SYXtSRxLZUzHg5P/66Ht6uoUlHu9EZod+inXhKo3qQgwXUT/y1w==
@@ -7622,6 +7931,16 @@ terminal-link@^2.0.0:
   dependencies:
     ansi-escapes "^4.2.1"
     supports-hyperlinks "^2.0.0"
+
+terser@^5.15.0:
+  version "5.16.8"
+  resolved "https://registry.npmjs.org/terser/-/terser-5.16.8.tgz"
+  integrity sha512-QI5g1E/ef7d+PsDifb+a6nnVgC4F22Bg6T0xrBrz6iloVB4PUkkunp6V8nzoOOZJIzjWVdAGqCdlKlhLq/TbIA==
+  dependencies:
+    "@jridgewell/source-map" "^0.3.2"
+    acorn "^8.5.0"
+    commander "^2.20.0"
+    source-map-support "~0.5.20"
 
 test-exclude@^6.0.0:
   version "6.0.0"
@@ -8132,6 +8451,15 @@ wrap-ansi@^6.2.0:
     string-width "^4.1.0"
     strip-ansi "^6.0.0"
 
+wrap-ansi@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.npmjs.org/wrap-ansi/-/wrap-ansi-7.0.0.tgz"
+  integrity sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==
+  dependencies:
+    ansi-styles "^4.0.0"
+    string-width "^4.1.0"
+    strip-ansi "^6.0.0"
+
 wrappy@1:
   version "1.0.2"
   resolved "https://registry.npmjs.org/wrappy/-/wrappy-1.0.2.tgz"
@@ -8193,6 +8521,11 @@ y18n@^4.0.0:
   resolved "https://registry.npmjs.org/y18n/-/y18n-4.0.3.tgz"
   integrity sha512-JKhqTOwSrqNA1NY5lSztJ1GrBiUodLMmIZuLiDaMRJ+itFd+ABVE8XBjOvIWL+rSqNDC74LCSFmlb/U4UZ4hJQ==
 
+y18n@^5.0.5:
+  version "5.0.8"
+  resolved "https://registry.npmjs.org/y18n/-/y18n-5.0.8.tgz"
+  integrity sha512-0pfFzegeDWJHJIAmTLRP2DwHjdF5s7jo9tuztdQxAhINCdvS+3nGINqPd00AphqJR/0LhANUS6/+7SCb98YOfA==
+
 yallist@^3.0.2:
   version "3.1.1"
   resolved "https://registry.npmjs.org/yallist/-/yallist-3.1.1.tgz"
@@ -8211,6 +8544,11 @@ yargs-parser@^18.1.2:
     camelcase "^5.0.0"
     decamelize "^1.2.0"
 
+yargs-parser@^21.1.1:
+  version "21.1.1"
+  resolved "https://registry.npmjs.org/yargs-parser/-/yargs-parser-21.1.1.tgz"
+  integrity sha512-tVpsJW7DdjecAiFpbIB1e3qxIQsE6NoPc5/eTdrbbIC4h0LVsWhnoa3g+m2HclBIujHzsxZ4VJVA+GUuc2/LBw==
+
 yargs@^15.1.0, yargs@^15.3.1, yargs@^15.4.1:
   version "15.4.1"
   resolved "https://registry.npmjs.org/yargs/-/yargs-15.4.1.tgz"
@@ -8227,6 +8565,19 @@ yargs@^15.1.0, yargs@^15.3.1, yargs@^15.4.1:
     which-module "^2.0.0"
     y18n "^4.0.0"
     yargs-parser "^18.1.2"
+
+yargs@^17.5.1:
+  version "17.7.1"
+  resolved "https://registry.npmjs.org/yargs/-/yargs-17.7.1.tgz"
+  integrity sha512-cwiTb08Xuv5fqF4AovYacTFNxk62th7LKJ6BL9IGUpTJrWoU7/7WdQGTP2SjKf1dUNBGzDd28p/Yfs/GI6JrLw==
+  dependencies:
+    cliui "^8.0.1"
+    escalade "^3.1.1"
+    get-caller-file "^2.0.5"
+    require-directory "^2.1.1"
+    string-width "^4.2.3"
+    y18n "^5.0.5"
+    yargs-parser "^21.1.1"
 
 yocto-queue@^0.1.0:
   version "0.1.0"

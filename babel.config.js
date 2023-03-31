@@ -24,6 +24,7 @@ module.exports = {
           '@api': './src/api',
           '@hooks': './src/hooks',
           '@redux': './src/redux',
+          '@types': './src/types',
         },
       },
     ],
